@@ -16,7 +16,7 @@ To generate the orientation dataset download the [vehicleX code](https://github.
 Move the script unity3D/GenerateOrientationDataWithDistractors.cs in the project and change the paths to the background images you want to use.<br />
 Click hold and move the script on the camera. Delete all opject including the lights in the scene. Run.<br />
 After generating the data use the vehicleX SPGAN to domain adapt the orientation data.<br />
-Or you can download the code.<br />
+Or you can download the dataset.<br />
 ## Dataset download 
 Download the cityAI datasets and the synthetic orient data from [link](https://drive.google.com/open?id=1huWCKzluNBwxz9D2pGqcJoz1wbJyVu-i) and place it in data/data/cityAI.<br />
 The labels for the orientation data is [here](https://drive.google.com/open?id=1yLbbWKH-Q-rrtSCeFDmJ7MnrSQ1jEZua).
