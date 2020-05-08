@@ -1,5 +1,5 @@
 ## Description
-Implementation of the [cityAI CVPR 2020 paper](https://drive.google.com/open?id=1Cm25GNSpBQ11t4jujq6W8wA5JrxLDB2L)
+Implementation of the [cityAI CVPR 2020 paper](https://drive.google.com/open?id=1Cm25GNSpBQ11t4jujq6W8wA5JrxLDB2L)<br />
 Our Code is based on the [bags of tricks repo](https://github.com/michuanhaohao/reid-strong-baseline). 
 ## Table of contents
 
@@ -12,13 +12,13 @@ Our Code is based on the [bags of tricks repo](https://github.com/michuanhaohao/
 - [Citation](#citation)
 
 ## Orientation dataset generation (optional)
-To generate the orientation dataset download the [vehicleX code](https://github.com/yorkeyao/VehicleX)
-Move the script unity3D/GenerateOrientationDataWithDistractors.cs in the project and change the paths to the background images you want to use.
-Click hold and move the script on the camera. Delete all opject including the lights in the scene. Run.
-After generating the data use the vehicleX SPGAN to domain adapt the orientation data.
-Or you can download the code.
+To generate the orientation dataset download the [vehicleX code](https://github.com/yorkeyao/VehicleX)<br />
+Move the script unity3D/GenerateOrientationDataWithDistractors.cs in the project and change the paths to the background images you want to use.<br />
+Click hold and move the script on the camera. Delete all opject including the lights in the scene. Run.<br />
+After generating the data use the vehicleX SPGAN to domain adapt the orientation data.<br />
+Or you can download the code.<br />
 ## Dataset download 
-Download the cityAI datasets and the synthetic orient data from [link](https://drive.google.com/open?id=1huWCKzluNBwxz9D2pGqcJoz1wbJyVu-i) and place it in data/data/cityAI.
+Download the cityAI datasets and the synthetic orient data from [link](https://drive.google.com/open?id=1huWCKzluNBwxz9D2pGqcJoz1wbJyVu-i) and place it in data/data/cityAI.<br />
 The labels for the orientation data is [here](https://drive.google.com/open?id=1yLbbWKH-Q-rrtSCeFDmJ7MnrSQ1jEZua).
 ```
 data
@@ -47,11 +47,11 @@ To train the orientation model
 ```
 
 the results will be saved in logs/wandb/
-Or you can download the pretrained models.
+Or you can download the pretrained models.<br />
 ## Download the pretrained models from the paper
 Download the pretrained models [link](https://drive.google.com/open?id=1mQLlwE173bKt9UrKd_HU8tLWADcv6aKu) and move them to the directory pretrained.
 ## Generate submission and files for visualisation
-To generate the submit.txt and the files for visualisation run
+To generate the submit.txt and the files for visualisation run<br />
 Before ensembling
 ```
 CUDA_VISIBLE_DEVICES=3 WANDB_CONFIG_PATHS=2020-aicitychallenge-IOSB-VeRi/config/config_singlenet_256x256.yaml WANDB_MODE=dryrun python3 2020-aicitychallenge-IOSB-VeRi/tools/generate_txt_files_for_visualisation.py -wp
