@@ -1,0 +1,255 @@
+DATALOADER.NUM_INSTANCE:
+  desc: Number of instance for one batch
+  value: 4
+DATALOADER.NUM_WORKERS:
+  desc: Number of data loading threads
+  value: 8
+DATALOADER.SAMPLER:
+  desc: Sampler for data loading
+  value: triplet
+DATASETS.DATASET_DIR:
+  desc: null, ai_city_challenge/2020/Track2/AIC20_track2_reid/AIC20_track2/AIC20_ReID,
+    aic19-track2-reid
+  value: ai_city_challenge/2020/Track2/AIC20_track2_reid/AIC20_track2/AIC20_ReID
+DATASETS.LABEL_DIR:
+  desc: null
+  value: ai_city_challenge/2020/Track2/AIC20_track2_reid/AIC20_track2/OrientationReal
+DATASETS.NAMES:
+  desc: List of the dataset names for training, as present in paths_catalog.py, AI_CITY2020,
+    AI_CITY2020_TEST_VAL, AI_CITY2020_TRACKS, AI_CITY2020_ORIENTATION
+  value: AI_CITY2020_ORIENTATION
+DATASETS.ROOT_DIR:
+  desc: Root directory where datasets should be used (and downloaded if not found)
+    /home/goat/Data/Fraunhofer /net/merkur/storage/deeplearning/datasets/VehicleReID/
+  value: /net/merkur/storage/deeplearning/datasets/VehicleReID/
+DATASETS.SYNTHETIC:
+  desc: If synthetic data should be used,true,false
+  value: true
+DATASETS.SYNTHETIC_DIR:
+  desc: null, ai_city_challenge/2020/Track2/AIC20_track2_reid_simulation/AIC20_track2/AIC20_ReID_Simulation,
+    AIC20_track2_reid_simulation/AIC20_track2/AIC20_ReID_Simulation, AIC20_track2_reid_simulation/AIC20_track2/SyntheticForOrientation
+  value: ai_city_challenge/2020/Track2/AIC20_track2_reid_simulation/AIC20_track2/Distractor3/0
+DATASETS.SYNTHETIC_LOADER:
+  desc: welche Funktion genommen wird um. 0 fuer die Original Synthetischen Daten,
+    1 fuer meine Orientation Syn Data
+  value: 1
+DATASETS.SYNTHETIC_TRACKS:
+  desc: If synthetic data for tracks should be used,true,false
+  value: false
+DATASETS.TRACKS:
+  desc: If train with Tracks or single images,true,false
+  value: false
+DATASETS.TRACKS_LENGTH:
+  desc: length of the tracklet, pls just uneven
+  value: 5
+DATASETS.TRACKS_TEST_SAMPLER:
+  desc: use 'evenly' so first and last and some between. or 'all'
+  value: all
+DATASETS.TRACKS_TRAIN_SAMPLER:
+  desc: Randomly sample seq_len 'randomly-consecutive', or not randomly 'evenly'
+  value: randomly-consecutive
+INPUT.PIXEL_MEAN:
+  desc: Values to be used for image normalization
+  value:
+  - 0.485
+  - 0.456
+  - 0.406
+INPUT.PIXEL_STD:
+  desc: Values to be used for image normalization
+  value:
+  - 0.229
+  - 0.224
+  - 0.225
+INPUT.SIZE_TEST:
+  desc: Size of the image during test
+  value:
+  - 256
+  - 256
+INPUT.SIZE_TRAIN:
+  desc: Size of the image during training
+  value:
+  - 256
+  - 256
+MODEL.BINARY:
+  desc: true, false
+  value: false
+MODEL.DEVICE:
+  desc: null
+  value: cuda
+MODEL.DEVICE_ID:
+  desc: ID number of GPU
+  value: '0'
+MODEL.FEAT_FC:
+  desc: true of false fc layer after before global feat
+  value: true
+MODEL.FEAT_SIZE:
+  desc: feat length, 2048, 512
+  value: 2048
+MODEL.IF_LABELSMOOTH:
+  desc: If train with label smooth, options 'on', 'off'
+  value: 'on'
+MODEL.IF_WITH_CENTER:
+  desc: If train loss include center loss, options 'yes' or 'no'. Loss with center
+    loss has different optimizer configuration
+  value: 'no'
+MODEL.LAST_STRIDE:
+  desc: Last stride of backbone
+  value: 1
+MODEL.LOSS_RATIO:
+  desc: (1-cfg['MODEL.LOSS_RATIO'])  * F.cross_entropy(score,target) + cfg['MODEL.LOSS_RATIO']
+    * triplet(feat, target)[0]
+  value: 0.6
+MODEL.METRIC_LOSS_TYPE:
+  desc: The loss type of metric loss options
+  value: MSE
+MODEL.NAME:
+  desc: Name of backbone, resnet50,resnet50_keypoints,resnet50_track,densenet121,resnet101,resnet152
+  value: resnet152
+MODEL.NECK:
+  desc: If train with BNNeck, options 'bnneck' or 'no'
+  value: bnneck
+MODEL.N_BASE_PARAM_TRAIN:
+  desc: how many layers should be trained from backwards. 0, dann trainiert er alle
+  value: 0
+MODEL.PRETRAIN_CHOICE:
+  desc: Use ImageNet pretrained model to initialize backbone or use self trained model
+    to initialize the whole model Options 'imagenet' or 'self', 'continue', continue
+    um training fortzusetzen. noch nicht implementiert. self-no-head
+  value: self-no-head
+MODEL.PRETRAIN_PATH:
+  desc: Path to pretrained model of backbone
+  value: /net/merkur/storage/deeplearning/users/eckvik/WorkspaceNeu/VReID/2020-aicitychallenge-IOSB-VeRi/config/resnet152_i2i_256x256.yaml
+MODEL.TRACK_HEAD:
+  desc: TA
+  value: TA5
+SOLVER.BASE_LR:
+  desc: Base learning rate
+  value: 0.0005
+SOLVER.BIAS_LR_FACTOR:
+  desc: Factor of learning bias
+  value: 1
+SOLVER.CENTER_LOSS_WEIGHT:
+  desc: Balanced weight of center loss
+  value: 0.0005
+SOLVER.CENTER_LR:
+  desc: Learning rate of SGD to learn the centers of center loss
+  value: 0.5
+SOLVER.CLUSTER_MARGIN:
+  desc: Margin of cluster ;pss
+  value: 0.3
+SOLVER.EVAL_PERIOD:
+  desc: epoch number of validation and saving model
+  value: 1
+SOLVER.GAMMA:
+  desc: decay rate of learning rate
+  value: 0.18938956747281305
+SOLVER.IMS_PER_BATCH:
+  desc: Number of images per batch This is global, so if we have 8 GPUs and IMS_PER_BATCH
+    = 16, each GPU will see 2 images per batch
+  value: 64
+SOLVER.LOG_PERIOD:
+  desc: iteration of display training log
+  value: 20
+SOLVER.MARGIN:
+  desc: Margin of triplet loss
+  value: 0.3
+SOLVER.MAX_EPOCHS:
+  desc: Number of max epoches
+  value: 40
+SOLVER.MOMENTUM:
+  desc: Momentum
+  value: 0.3
+SOLVER.OPTIMIZER_NAME:
+  desc: Name of optimizer
+  value: Adam
+SOLVER.STEPS:
+  desc: decay step of learning rate
+  value:
+  - 3
+  - 5
+  - 7
+  - 9
+  - 11
+SOLVER.WARMUP_FACTOR:
+  desc: warm up factor
+  value: 0.007542944488985973
+SOLVER.WARMUP_ITERS:
+  desc: iterations of warm up
+  value: 0
+SOLVER.WARMUP_METHOD:
+  desc: method of warm up, option 'constant','linear'
+  value: linear
+SOLVER.WEIGHT_DECAY:
+  desc: Settings of weight decay
+  value: 0.0009254549597744683
+SOLVER.WEIGHT_DECAY_BIAS:
+  desc: null
+  value: 0.000859657725513176
+TEST.FEAT_NORM:
+  desc: Whether feature is nomalized before test, if yes, it is equivalent to cosine
+    distance
+  value: 'yes'
+TEST.IMS_PER_BATCH:
+  desc: Number of images per batch during test
+  value: 128
+TEST.NECK_FEAT:
+  desc: Which feature of BNNeck to be used for test, before or after BNNneck, options
+    'before' or 'after'
+  value: after
+TEST.RE_RANKING:
+  desc: If test with re-ranking, options 'yes','no'
+  value: 'no'
+TEST.WEIGHT:
+  desc: Path to trained model
+  value: ''
+TRANSFORM.CUTOUT:
+  desc: True or False
+  value: true
+TRANSFORM.CUTOUT_PROB:
+  desc: Random probability for random erasing
+  value: 0.5
+TRANSFORM.PAD:
+  desc: True or False
+  value: true
+TRANSFORM.PADDING_SIZE:
+  desc: Value of padding size
+  value: 10
+TRANSFORM.RANDOM_BLUR:
+  desc: True or False
+  value: false
+TRANSFORM.RANDOM_BRIGHTNESS:
+  desc: True or False
+  value: false
+TRANSFORM.RANDOM_CLAHE:
+  desc: True or False
+  value: false
+TRANSFORM.RANDOM_CONTRAST:
+  desc: True or False
+  value: false
+TRANSFORM.RANDOM_CROP:
+  desc: True or False
+  value: true
+TRANSFORM.RANDOM_ERASING:
+  desc: True or False
+  value: false
+TRANSFORM.RANDOM_HORIZONTAL_FLIP:
+  desc: True or False
+  value: false
+TRANSFORM.RANDOM_HUE_SATURATION_VALUE:
+  desc: True or False
+  value: false
+TRANSFORM.RANDOM_ROTATE:
+  desc: true or false
+  value: false
+TRANSFORM.RANDOM_SHIFTSCALEROTATE:
+  desc: true or false
+  value: false
+TRANSFORM.RGB_SHIFT:
+  desc: True or False
+  value: false
+TRANSFORM.ROTATE_FACTOR1:
+  desc: angle, 90, 45. range will be -x,x for RANDOM_ROTATE
+  value: 45
+TRANSFORM.ROTATE_FACTOR2:
+  desc: angle, 90, 45. range will be -x,x for RANDOM_SHIFTSCALEROTATE
+  value: 45
