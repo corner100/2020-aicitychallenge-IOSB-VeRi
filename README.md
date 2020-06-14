@@ -68,7 +68,13 @@ ensembling_different_models.py generates the submit file
 ## Citation
 
 ```
-coming soon
+@InProceedings{Eckstein_2020_CVPR_Workshops,
+author = {Eckstein, Viktor and Schumann, Arne and Specker, Andreas},
+title = {Large Scale Vehicle Re-Identification by Knowledge Transfer From Simulated Data and Temporal Attention},
+booktitle = {The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+month = {June},
+year = {2020}
+} 
 ```
 Bags of tricks
 ```
