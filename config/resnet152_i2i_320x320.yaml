@@ -31,6 +31,9 @@ DATASETS.SYNTHETIC_LOADER:
   desc: welche Funktion genommen wird um. 0 fuer die Original Synthetischen Daten,
     1 fuer meine Orientation Syn Data
   value: 0
+DATASETS.NUM_CLASSES:
+  desc: num classes train set
+  value: 1695
 DATASETS.TRACKS:
   desc: If train with Tracks or single images,true,false
   value: false

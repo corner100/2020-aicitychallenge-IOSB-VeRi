@@ -6,7 +6,6 @@ from .backbones.resnet import ResNet, BasicBlock, Bottleneck
 from .backbones.senet import SENet, SEResNetBottleneck, SEBottleneck, SEResNeXtBottleneck
 from .backbones.resnet_ibn_a import resnet50_ibn_a
 import numpy as np
-from .resnet_cbam import ResNetCBAM
 
 def weights_init_kaiming(m):
     classname = m.__class__.__name__
@@ -60,30 +59,6 @@ class Baseline_track(nn.Module):
             self.base = ResNet(last_stride=last_stride,
                                block=Bottleneck,
                                layers=[3, 8, 36, 3])
-
-        elif model_name == 'resnet18-cbam':
-            self.in_planes = 512
-            self.base = ResNetCBAM(last_stride=last_stride,
-                                   block=BasicBlock,
-                                   layers=[2, 2, 2, 2])
-        elif model_name == 'resnet34-cbam':
-            self.in_planes = 512
-            self.base = ResNetCBAM(last_stride=last_stride,
-                                   block=BasicBlock,
-                                   layers=[3, 4, 6, 3])
-        elif model_name == 'resnet50-cbam':
-            self.base = ResNetCBAM(last_stride=last_stride,
-                                   block=Bottleneck,
-                                   layers=[3, 4, 6, 3])
-        elif model_name == 'resnet101-cbam':
-            self.base = ResNetCBAM(last_stride=last_stride,
-                                   block=Bottleneck,
-                                   layers=[3, 4, 23, 3])
-        elif model_name == 'resnet152-cbam':
-            self.base = ResNetCBAM(last_stride=last_stride,
-                                   block=Bottleneck,
-                                   layers=[3, 8, 36, 3])
-
         elif model_name == 'se_resnet50':
             self.base = SENet(block=SEResNetBottleneck,
                               layers=[3, 4, 6, 3],
