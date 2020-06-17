@@ -126,9 +126,9 @@ class Baseline(nn.Module):
         elif model_name == 'resnet50_ibn_a':
             self.base = resnet50_ibn_a(last_stride)
 
-        if pretrain_choice == 'imagenet':
-            self.base.load_param(model_path)
-            print('Loading pretrained ImageNet model......')
+        #if pretrain_choice == 'imagenet':
+        #    self.base.load_param(model_path)
+        #    print('Loading pretrained ImageNet model......')
         self.gap = nn.AdaptiveAvgPool2d(1)
         # self.gap = nn.AdaptiveMaxPool2d(1)
 
@@ -148,12 +148,12 @@ class Baseline(nn.Module):
 
             self.bottleneck.apply(weights_init_kaiming)
             self.classifier.apply(weights_init_classifier)
-        if pretrain_choice == 'self-no-head':
-            self.load_param_for_base(model_path)
-            print('Loading pretrained own base model......')
-        if pretrain_choice == 'self':
-            self.load_param(model_path)
-            print('Loading pretrained own base model......')
+        #if pretrain_choice == 'self-no-head':
+        #    self.load_param_for_base(model_path)
+        #    print('Loading pretrained own base model......')
+        #if pretrain_choice == 'self':
+        #    self.load_param(model_path)
+        #    print('Loading pretrained own base model......')
 
     def forward(self, x):
 
