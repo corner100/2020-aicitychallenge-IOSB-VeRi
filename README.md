@@ -70,7 +70,7 @@ ensembling_different_models.py generates the submit file
 You need an input folder with images and an empty output folder.
 Download the weights, select a config file and run:
 ```
-CUDA_VISIBLE_DEVICES=3 .../tools/generate_feats.py --input ../input --output ../output --config ../config/resnet152_i2i_256x256.yaml --weights /net/merkur/storage/deeplearning/users/eckvik/WorkspaceNeu/VReID/VehicleReID/logs/cityai/2020/wandb/run-20200325_181358-7zlgl6yc_my_logs_justfold1/resnet152_model_63.pth
+CUDA_VISIBLE_DEVICES=3 .../tools/generate_feats.py --input ../input --output ../output --config ../config/resnet152_i2i_256x256.yaml --weights ..../resnet152_model_63.pth
 ```
 ## Citation
 
